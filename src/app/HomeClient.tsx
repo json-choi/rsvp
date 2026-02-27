@@ -21,6 +21,12 @@ export default function HomeClient({ landingImage, texts }: Props) {
   const [isBgmPlaying, setIsBgmPlaying] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
+  // 30초 후 자동으로 초대장 열기
+  useEffect(() => {
+    const timer = setTimeout(() => setIsOpen(true), 30000);
+    return () => clearTimeout(timer);
+  }, []);
+
   // 첫 인터랙션 시 BGM 자동 재생
   useEffect(() => {
     const audio = audioRef.current;

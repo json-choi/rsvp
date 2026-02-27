@@ -102,13 +102,14 @@ export default function HomeClient({ landingImage, texts }: Props) {
             <motion.div
               className={styles.landingImageContainer}
               animate={{
+                scale: [1, 1.012, 1],
                 boxShadow: [
                   '0 20px 50px rgba(212, 175, 55, 0.3)',
                   '0 20px 80px rgba(212, 175, 55, 0.6)',
                   '0 20px 50px rgba(212, 175, 55, 0.3)',
                 ],
               }}
-              transition={{ duration: 4, repeat: Infinity }}
+              transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
             >
               <Image
                 src={landingImage}
@@ -118,13 +119,7 @@ export default function HomeClient({ landingImage, texts }: Props) {
                 priority
                 unoptimized={landingImage.startsWith('http')}
               />
-            </motion.div>
-            <motion.div
-              className={styles.clickHint}
-              animate={{ opacity: [0.3, 1, 0.3], y: [0, -8, 0] }}
-              transition={{ duration: 3, repeat: Infinity }}
-            >
-              open
+              <div className={styles.shimmerOverlay} />
             </motion.div>
           </motion.div>
         ) : (

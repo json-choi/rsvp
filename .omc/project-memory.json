@@ -115,8 +115,8 @@
   "hotPaths": [
     {
       "path": "src/app/page.tsx",
-      "accessCount": 17,
-      "lastAccessed": 1772183173964,
+      "accessCount": 19,
+      "lastAccessed": 1772183511861,
       "type": "file"
     },
     {
@@ -202,6 +202,12 @@
       "accessCount": 1,
       "lastAccessed": 1772183245971,
       "type": "directory"
+    },
+    {
+      "path": "src/app/HomeClient.tsx",
+      "accessCount": 1,
+      "lastAccessed": 1772183507801,
+      "type": "file"
     }
   ],
   "userDirectives": []

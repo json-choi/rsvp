@@ -1,7 +1,6 @@
 'use server';
 
-import { db } from '@/db';
-import { rsvps } from '@/db/schema';
+import { supabase } from '@/lib/supabase';
 
 export async function submitRSVP(formData: FormData) {
   const name = formData.get('name') as string;
@@ -12,11 +11,8 @@ export async function submitRSVP(formData: FormData) {
   }
 
   try {
-    await db.insert(rsvps).values({
-      name,
-      phone,
-      attending: true,
-    });
+    const { error } = await supabase.from('rsvps').insert({ name, phone, attending: true });
+    if (error) throw error;
     return { success: true };
   } catch (error) {
     console.error('Failed to submit RSVP:', error);

@@ -1,9 +1,7 @@
 'use server';
 
 import { cookies } from 'next/headers';
-import { db } from '@/db';
-import { rsvps, settings } from '@/db/schema';
-import { desc, eq } from 'drizzle-orm';
+import { supabaseAdmin } from '@/lib/supabase';
 import { revalidatePath } from 'next/cache';
 
 const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'admin123';
@@ -23,7 +21,9 @@ export async function getRSVPs() {
   if (!session || session.value !== 'true') {
     throw new Error('Unauthorized');
   }
-  return await db.select().from(rsvps).orderBy(desc(rsvps.createdAt));
+  const { data, error } = await supabaseAdmin.from('rsvps').select('*').order('created_at', { ascending: false });
+  if (error) throw error;
+  return data;
 }
 
 export async function updateLandingImage(url: string) {
@@ -33,20 +33,20 @@ export async function updateLandingImage(url: string) {
     throw new Error('Unauthorized');
   }
 
-  // Check if image setting exists
-  const existingSetting = await db.select().from(settings).where(eq(settings.key, 'landing_image')).limit(1);
-  
-  if (existingSetting.length > 0) {
-    await db.update(settings).set({ value: url }).where(eq(settings.key, 'landing_image'));
-  } else {
-    await db.insert(settings).values({ key: 'landing_image', value: url });
-  }
-  
+  const { error } = await supabaseAdmin
+    .from('settings')
+    .upsert({ key: 'landing_image', value: url }, { onConflict: 'key' });
+  if (error) throw error;
+
   revalidatePath('/');
   return { success: true };
 }
 
 export async function getLandingImage() {
-  const setting = await db.select().from(settings).where(eq(settings.key, 'landing_image')).limit(1);
-  return setting.length > 0 ? setting[0].value : '/rending.png';
+  const { data } = await supabaseAdmin
+    .from('settings')
+    .select('value')
+    .eq('key', 'landing_image')
+    .single();
+  return data?.value ?? '/rending.png';
 }

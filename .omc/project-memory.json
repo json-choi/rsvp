@@ -120,9 +120,33 @@
       "type": "file"
     },
     {
+      "path": "package.json",
+      "accessCount": 4,
+      "lastAccessed": 1772180796116,
+      "type": "file"
+    },
+    {
       "path": "src/app/page.module.css",
       "accessCount": 2,
       "lastAccessed": 1772180211509,
+      "type": "file"
+    },
+    {
+      "path": "src/lib/supabase.ts",
+      "accessCount": 2,
+      "lastAccessed": 1772180724133,
+      "type": "file"
+    },
+    {
+      "path": "src/app/actions.ts",
+      "accessCount": 2,
+      "lastAccessed": 1772180738410,
+      "type": "file"
+    },
+    {
+      "path": "src/app/admin/adminActions.ts",
+      "accessCount": 2,
+      "lastAccessed": 1772180741006,
       "type": "file"
     },
     {
@@ -135,6 +159,36 @@
       "path": "src/app/layout.tsx",
       "accessCount": 1,
       "lastAccessed": 1772180072004,
+      "type": "file"
+    },
+    {
+      "path": "drizzle.config.ts",
+      "accessCount": 1,
+      "lastAccessed": 1772180661987,
+      "type": "file"
+    },
+    {
+      "path": "src/db/index.ts",
+      "accessCount": 1,
+      "lastAccessed": 1772180662544,
+      "type": "file"
+    },
+    {
+      "path": ".env.example",
+      "accessCount": 1,
+      "lastAccessed": 1772180662932,
+      "type": "file"
+    },
+    {
+      "path": "src/db/schema.ts",
+      "accessCount": 1,
+      "lastAccessed": 1772180669847,
+      "type": "file"
+    },
+    {
+      "path": "supabase/schema.sql",
+      "accessCount": 1,
+      "lastAccessed": 1772180890542,
       "type": "file"
     }
   ],

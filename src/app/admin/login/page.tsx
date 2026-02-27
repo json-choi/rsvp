@@ -27,7 +27,8 @@ export default function LoginPage() {
       justifyContent: 'center',
       minHeight: '100vh',
       padding: '20px',
-      backgroundColor: '#f8f9fa'
+      backgroundColor: '#f8f9fa',
+      color: '#171717'
     }}>
       <div style={{
         background: 'white',

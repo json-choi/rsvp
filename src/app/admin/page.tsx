@@ -93,7 +93,7 @@ export default function AdminPage() {
   if (loading) return <div style={{ display: 'flex', justifyContent: 'center', padding: '50px' }}>Loading...</div>;
 
   return (
-    <div style={{ padding: '40px', maxWidth: '1000px', margin: '0 auto', minHeight: '100vh', backgroundColor: '#fff' }}>
+    <div style={{ padding: '40px', maxWidth: '1000px', margin: '0 auto', minHeight: '100vh', backgroundColor: '#fff', color: '#171717' }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '30px' }}>
         <h1>Admin Dashboard</h1>
         <button

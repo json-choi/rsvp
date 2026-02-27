@@ -146,12 +146,10 @@ export default function HomeClient({ landingImage, texts }: Props) {
               className={styles.landingInfo}
               onClick={handleOpen}
               initial={{ opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8, duration: 0.6 }}
+              animate={{ opacity: [0.4, 1, 0.4], y: [4, 0, 4] }}
+              transition={{ delay: 0.8, duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
             >
-              <span className={styles.landingInfoDate}>{texts.event_date}</span>
-              <span className={styles.landingInfoSep}>·</span>
-              <span className={styles.landingInfoVenue}>{texts.event_venue}</span>
+              <span className={styles.landingInfoText}>초대장 열어보기</span>
             </motion.div>
           </motion.div>
         ) : (

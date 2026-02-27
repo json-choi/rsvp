@@ -73,17 +73,12 @@
   cursor: pointer;
 }
 
-.landingInfoDate,
-.landingInfoVenue {
-  font-size: 0.72rem;
-  letter-spacing: 0.2em;
+.landingInfoText {
+  font-size: 0.7rem;
+  letter-spacing: 0.35em;
   color: #a0855a;
   font-weight: 400;
-}
-
-.landingInfoSep {
-  color: rgba(160, 133, 90, 0.4);
-  font-size: 0.7rem;
+  text-transform: uppercase;
 }
 
 /* ── Invitation card ── */

@@ -133,8 +133,8 @@
     },
     {
       "path": "src/app/admin/adminActions.ts",
-      "accessCount": 4,
-      "lastAccessed": 1772183619293,
+      "accessCount": 5,
+      "lastAccessed": 1772184165365,
       "type": "file"
     },
     {
@@ -150,21 +150,27 @@
       "type": "file"
     },
     {
+      "path": "src/lib/supabase.ts",
+      "accessCount": 3,
+      "lastAccessed": 1772184159458,
+      "type": "file"
+    },
+    {
       "path": "src/app/page.module.css",
       "accessCount": 2,
       "lastAccessed": 1772180211509,
       "type": "file"
     },
     {
-      "path": "src/lib/supabase.ts",
-      "accessCount": 2,
-      "lastAccessed": 1772180724133,
-      "type": "file"
-    },
-    {
       "path": "src/app/actions.ts",
       "accessCount": 2,
       "lastAccessed": 1772180738410,
+      "type": "file"
+    },
+    {
+      "path": "supabase/schema.sql",
+      "accessCount": 2,
+      "lastAccessed": 1772183742070,
       "type": "file"
     },
     {
@@ -192,12 +198,6 @@
       "type": "file"
     },
     {
-      "path": "supabase/schema.sql",
-      "accessCount": 1,
-      "lastAccessed": 1772180890542,
-      "type": "file"
-    },
-    {
       "path": "",
       "accessCount": 1,
       "lastAccessed": 1772183245971,
@@ -213,6 +213,12 @@
       "path": "src/app/admin/textSettingsConfig.ts",
       "accessCount": 1,
       "lastAccessed": 1772183607910,
+      "type": "file"
+    },
+    {
+      "path": "src/lib/supabase-admin.ts",
+      "accessCount": 1,
+      "lastAccessed": 1772184160882,
       "type": "file"
     }
   ],

@@ -1,7 +1,7 @@
 'use server';
 
 import { cookies } from 'next/headers';
-import { supabaseAdmin } from '@/lib/supabase';
+import { supabaseAdmin } from '@/lib/supabase-admin';
 import { revalidatePath } from 'next/cache';
 import { TEXT_SETTING_KEYS, TEXT_SETTING_DEFAULTS } from './textSettingsConfig';
 

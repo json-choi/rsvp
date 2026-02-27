@@ -120,6 +120,12 @@
       "type": "file"
     },
     {
+      "path": "src/app/HomeClient.tsx",
+      "accessCount": 14,
+      "lastAccessed": 1772198279911,
+      "type": "file"
+    },
+    {
       "path": "src/app/page.module.css",
       "accessCount": 9,
       "lastAccessed": 1772196818704,
@@ -127,14 +133,8 @@
     },
     {
       "path": "src/app/layout.tsx",
-      "accessCount": 7,
-      "lastAccessed": 1772183653927,
-      "type": "file"
-    },
-    {
-      "path": "src/app/HomeClient.tsx",
-      "accessCount": 6,
-      "lastAccessed": 1772196777224,
+      "accessCount": 8,
+      "lastAccessed": 1772197847788,
       "type": "file"
     },
     {

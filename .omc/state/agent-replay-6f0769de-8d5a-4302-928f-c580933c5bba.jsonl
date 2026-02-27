@@ -17,3 +17,6 @@
 {"t":0,"agent":"ab3c414","agent_type":"Explore","event":"agent_stop","success":true,"duration_ms":61886}
 {"t":0,"agent":"ae47d4f","agent_type":"unknown","event":"agent_stop","success":true}
 {"t":0,"agent":"a8c72a2","agent_type":"unknown","event":"agent_stop","success":true}
+{"t":0,"agent":"a7645fe","agent_type":"unknown","event":"agent_stop","success":true}
+{"t":0,"agent":"ab81b83","agent_type":"unknown","event":"agent_stop","success":true}
+{"t":0,"agent":"ae2f212","agent_type":"unknown","event":"agent_stop","success":true}

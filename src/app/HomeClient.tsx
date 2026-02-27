@@ -149,7 +149,7 @@ export default function HomeClient({ landingImage, texts }: Props) {
               animate={{ opacity: [0.4, 1, 0.4], y: [4, 0, 4] }}
               transition={{ delay: 0.8, duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
             >
-              <span className={styles.landingInfoText}>초대장 열어보기</span>
+              <span className={styles.landingInfoText}>👆 탭하여 열기</span>
             </motion.div>
           </motion.div>
         ) : (

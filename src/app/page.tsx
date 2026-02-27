@@ -4,7 +4,7 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 import Image from 'next/image';
 import styles from './page.module.css';
 import { submitRSVP } from './actions';
-import { getLandingImage } from './admin/adminActions';
+import { getLandingImage, getTextSettings, TEXT_SETTING_DEFAULTS } from './admin/adminActions';
 import { motion, AnimatePresence } from 'framer-motion';
 import confetti from 'canvas-confetti';
 import {
@@ -23,6 +23,7 @@ export default function Home() {
   const [error, setError] = useState<string | null>(null);
   const [landingImage, setLandingImage] = useState<string>('/rending.png');
   const [isBgmPlaying, setIsBgmPlaying] = useState(false);
+  const [texts, setTexts] = useState<Record<string, string>>(TEXT_SETTING_DEFAULTS);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   // Firework Logic: Launches fireworks from random positions
@@ -49,11 +50,12 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    async function fetchImage() {
-      const img = await getLandingImage();
+    async function fetchData() {
+      const [img, textData] = await Promise.all([getLandingImage(), getTextSettings()]);
       setLandingImage(img);
+      setTexts(textData);
     }
-    fetchImage();
+    fetchData();
     fireFireworks(); // Trigger fireworks immediately on load
   }, [fireFireworks]);
 
@@ -162,17 +164,17 @@ export default function Home() {
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.3, duration: 0.8 }}
             >
-              <p className={styles.subtitle}>First Annual</p>
-              <h1 className={styles.title}>강림 축복 파티</h1>
+              <p className={styles.subtitle}>{texts.subtitle}</p>
+              <h1 className={styles.title}>{texts.title}</h1>
             </motion.div>
 
             <div className={styles.divider} />
 
             <div className={styles.details}>
               {[
-                { Icon: Calendar, value: '2026 · 05 · 10 · SAT' },
-                { Icon: Clock, value: '18 : 00' },
-                { Icon: MapPin, value: '더 그랜드 호텔 발룸' },
+                { Icon: Calendar, value: texts.event_date },
+                { Icon: Clock, value: texts.event_time },
+                { Icon: MapPin, value: texts.event_venue },
               ].map((item, i) => (
                 <motion.div
                   key={i}
@@ -243,8 +245,8 @@ export default function Home() {
                 >
                   <Sparkles size={48} color="#d4af37" style={{ marginBottom: '24px' }} />
                 </motion.div>
-                <h2 className={styles.successTitle}>See you there.</h2>
-                <p className={styles.successSub}>2026 · 05 · 10</p>
+                <h2 className={styles.successTitle}>{texts.success_title}</h2>
+                <p className={styles.successSub}>{texts.success_sub}</p>
               </motion.div>
             )}
           </motion.div>

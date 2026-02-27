@@ -115,14 +115,26 @@
   "hotPaths": [
     {
       "path": "src/app/page.tsx",
-      "accessCount": 10,
-      "lastAccessed": 1772180214762,
+      "accessCount": 17,
+      "lastAccessed": 1772183173964,
+      "type": "file"
+    },
+    {
+      "path": "src/app/layout.tsx",
+      "accessCount": 6,
+      "lastAccessed": 1772183413651,
       "type": "file"
     },
     {
       "path": "package.json",
-      "accessCount": 4,
-      "lastAccessed": 1772180796116,
+      "accessCount": 5,
+      "lastAccessed": 1772183365429,
+      "type": "file"
+    },
+    {
+      "path": "src/app/admin/adminActions.ts",
+      "accessCount": 3,
+      "lastAccessed": 1772183052790,
       "type": "file"
     },
     {
@@ -144,21 +156,15 @@
       "type": "file"
     },
     {
-      "path": "src/app/admin/adminActions.ts",
+      "path": "src/app/admin/page.tsx",
       "accessCount": 2,
-      "lastAccessed": 1772180741006,
+      "lastAccessed": 1772183137717,
       "type": "file"
     },
     {
       "path": "src/app/globals.css",
-      "accessCount": 1,
-      "lastAccessed": 1772180003091,
-      "type": "file"
-    },
-    {
-      "path": "src/app/layout.tsx",
-      "accessCount": 1,
-      "lastAccessed": 1772180072004,
+      "accessCount": 2,
+      "lastAccessed": 1772183353997,
       "type": "file"
     },
     {
@@ -190,6 +196,12 @@
       "accessCount": 1,
       "lastAccessed": 1772180890542,
       "type": "file"
+    },
+    {
+      "path": "",
+      "accessCount": 1,
+      "lastAccessed": 1772183245971,
+      "type": "directory"
     }
   ],
   "userDirectives": []

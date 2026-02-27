@@ -1,0 +1,142 @@
+{
+  "version": "1.0.0",
+  "lastScanned": 1772179916806,
+  "projectRoot": "/Users/jaesong/Documents/my/welcome-party",
+  "techStack": {
+    "languages": [
+      {
+        "name": "JavaScript/TypeScript",
+        "version": null,
+        "confidence": "high",
+        "markers": [
+          "package.json"
+        ]
+      },
+      {
+        "name": "TypeScript",
+        "version": null,
+        "confidence": "high",
+        "markers": [
+          "tsconfig.json"
+        ]
+      }
+    ],
+    "frameworks": [
+      {
+        "name": "next",
+        "version": "16.1.6",
+        "category": "fullstack"
+      },
+      {
+        "name": "react",
+        "version": "19.2.3",
+        "category": "frontend"
+      },
+      {
+        "name": "react-dom",
+        "version": "19.2.3",
+        "category": "frontend"
+      }
+    ],
+    "packageManager": "npm",
+    "runtime": null
+  },
+  "build": {
+    "buildCommand": "npm run build",
+    "testCommand": null,
+    "lintCommand": "npm run lint",
+    "devCommand": "npm run dev",
+    "scripts": {
+      "dev": "next dev",
+      "build": "next build",
+      "start": "next start",
+      "lint": "eslint",
+      "db:push": "drizzle-kit push"
+    }
+  },
+  "conventions": {
+    "namingStyle": null,
+    "importStyle": null,
+    "testPattern": null,
+    "fileOrganization": null
+  },
+  "structure": {
+    "isMonorepo": false,
+    "workspaces": [],
+    "mainDirectories": [
+      "public",
+      "src"
+    ],
+    "gitBranches": null
+  },
+  "customNotes": [],
+  "directoryMap": {
+    "public": {
+      "path": "public",
+      "purpose": "Public files",
+      "fileCount": 6,
+      "lastAccessed": 1772179916782,
+      "keyFiles": [
+        "file.svg",
+        "globe.svg",
+        "next.svg",
+        "rending.png",
+        "vercel.svg"
+      ]
+    },
+    "src": {
+      "path": "src",
+      "purpose": "Source code",
+      "fileCount": 0,
+      "lastAccessed": 1772179916784,
+      "keyFiles": []
+    },
+    "src/app": {
+      "path": "src/app",
+      "purpose": "Application code",
+      "fileCount": 6,
+      "lastAccessed": 1772179916791,
+      "keyFiles": [
+        "actions.ts",
+        "favicon.ico",
+        "globals.css"
+      ]
+    },
+    "src/lib": {
+      "path": "src/lib",
+      "purpose": "Library code",
+      "fileCount": 1,
+      "lastAccessed": 1772179916792,
+      "keyFiles": [
+        "supabase.ts"
+      ]
+    }
+  },
+  "hotPaths": [
+    {
+      "path": "src/app/page.tsx",
+      "accessCount": 10,
+      "lastAccessed": 1772180214762,
+      "type": "file"
+    },
+    {
+      "path": "src/app/page.module.css",
+      "accessCount": 2,
+      "lastAccessed": 1772180211509,
+      "type": "file"
+    },
+    {
+      "path": "src/app/globals.css",
+      "accessCount": 1,
+      "lastAccessed": 1772180003091,
+      "type": "file"
+    },
+    {
+      "path": "src/app/layout.tsx",
+      "accessCount": 1,
+      "lastAccessed": 1772180072004,
+      "type": "file"
+    }
+  ],
+  "userDirectives": []
+}

@@ -121,8 +121,8 @@
     },
     {
       "path": "src/app/layout.tsx",
-      "accessCount": 6,
-      "lastAccessed": 1772183413651,
+      "accessCount": 7,
+      "lastAccessed": 1772183653927,
       "type": "file"
     },
     {
@@ -133,8 +133,20 @@
     },
     {
       "path": "src/app/admin/adminActions.ts",
+      "accessCount": 4,
+      "lastAccessed": 1772183619293,
+      "type": "file"
+    },
+    {
+      "path": "src/app/globals.css",
+      "accessCount": 4,
+      "lastAccessed": 1772183659290,
+      "type": "file"
+    },
+    {
+      "path": "src/app/admin/page.tsx",
       "accessCount": 3,
-      "lastAccessed": 1772183052790,
+      "lastAccessed": 1772183624480,
       "type": "file"
     },
     {
@@ -153,18 +165,6 @@
       "path": "src/app/actions.ts",
       "accessCount": 2,
       "lastAccessed": 1772180738410,
-      "type": "file"
-    },
-    {
-      "path": "src/app/admin/page.tsx",
-      "accessCount": 2,
-      "lastAccessed": 1772183137717,
-      "type": "file"
-    },
-    {
-      "path": "src/app/globals.css",
-      "accessCount": 2,
-      "lastAccessed": 1772183353997,
       "type": "file"
     },
     {
@@ -207,6 +207,12 @@
       "path": "src/app/HomeClient.tsx",
       "accessCount": 1,
       "lastAccessed": 1772183507801,
+      "type": "file"
+    },
+    {
+      "path": "src/app/admin/textSettingsConfig.ts",
+      "accessCount": 1,
+      "lastAccessed": 1772183607910,
       "type": "file"
     }
   ],

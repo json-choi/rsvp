@@ -8,9 +8,8 @@ import {
   getLandingImage,
   getTextSettings,
   updateTextSettings,
-  TEXT_SETTING_KEYS,
-  TEXT_SETTING_LABELS,
 } from './adminActions';
+import { TEXT_SETTING_KEYS, TEXT_SETTING_LABELS } from './textSettingsConfig';
 import { supabase } from '@/lib/supabase';
 
 type RSVP = {

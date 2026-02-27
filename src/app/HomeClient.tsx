@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef, useCallback } from 'react';
+import { useState, useRef, useCallback, useEffect } from 'react';
 import Image from 'next/image';
 import styles from './page.module.css';
 import { submitRSVP } from './actions';
@@ -20,6 +20,30 @@ export default function HomeClient({ landingImage, texts }: Props) {
   const [error, setError] = useState<string | null>(null);
   const [isBgmPlaying, setIsBgmPlaying] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
+
+  // 첫 인터랙션 시 BGM 자동 재생
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    // 즉시 재생 시도 (일부 브라우저에서 허용)
+    audio.play().then(() => {
+      setIsBgmPlaying(true);
+    }).catch(() => {
+      // 차단된 경우 첫 인터랙션 대기
+      const playOnInteraction = () => {
+        audio.play().then(() => {
+          setIsBgmPlaying(true);
+        }).catch(() => {});
+        document.removeEventListener('click', playOnInteraction);
+        document.removeEventListener('touchstart', playOnInteraction);
+        document.removeEventListener('keydown', playOnInteraction);
+      };
+      document.addEventListener('click', playOnInteraction);
+      document.addEventListener('touchstart', playOnInteraction);
+      document.addEventListener('keydown', playOnInteraction);
+    });
+  }, []);
 
   const fireFireworks = useCallback(() => {
     const duration = 5 * 1000;
@@ -42,10 +66,6 @@ export default function HomeClient({ landingImage, texts }: Props) {
   const handleOpen = () => {
     setIsOpen(true);
     fireFireworks();
-    if (audioRef.current && !isBgmPlaying) {
-      audioRef.current.play().catch(e => console.log('Audio play blocked:', e));
-      setIsBgmPlaying(true);
-    }
   };
 
   const toggleBgm = () => {
@@ -93,7 +113,6 @@ export default function HomeClient({ landingImage, texts }: Props) {
           <motion.div
             key="landing"
             className={styles.landing}
-            onClick={handleOpen}
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, y: -100, scale: 1.1, filter: 'blur(20px)' }}
@@ -101,6 +120,7 @@ export default function HomeClient({ landingImage, texts }: Props) {
           >
             <motion.div
               className={styles.landingImageContainer}
+              onClick={handleOpen}
               animate={{
                 scale: [1, 1.012, 1],
                 boxShadow: [
@@ -120,6 +140,18 @@ export default function HomeClient({ landingImage, texts }: Props) {
                 unoptimized={landingImage.startsWith('http')}
               />
               <div className={styles.shimmerOverlay} />
+            </motion.div>
+
+            <motion.div
+              className={styles.landingInfo}
+              onClick={handleOpen}
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.8, duration: 0.6 }}
+            >
+              <span className={styles.landingInfoDate}>{texts.event_date}</span>
+              <span className={styles.landingInfoSep}>·</span>
+              <span className={styles.landingInfoVenue}>{texts.event_venue}</span>
             </motion.div>
           </motion.div>
         ) : (

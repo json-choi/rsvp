@@ -127,8 +127,8 @@
     },
     {
       "path": "src/app/page.module.css",
-      "accessCount": 6,
-      "lastAccessed": 1772195980961,
+      "accessCount": 7,
+      "lastAccessed": 1772196273999,
       "type": "file"
     },
     {
@@ -156,6 +156,12 @@
       "type": "file"
     },
     {
+      "path": "src/app/HomeClient.tsx",
+      "accessCount": 4,
+      "lastAccessed": 1772196265738,
+      "type": "file"
+    },
+    {
       "path": "src/lib/supabase.ts",
       "accessCount": 3,
       "lastAccessed": 1772184159458,
@@ -177,12 +183,6 @@
       "path": "src/app/admin/login/page.tsx",
       "accessCount": 2,
       "lastAccessed": 1772195758715,
-      "type": "file"
-    },
-    {
-      "path": "src/app/HomeClient.tsx",
-      "accessCount": 2,
-      "lastAccessed": 1772195990247,
       "type": "file"
     },
     {

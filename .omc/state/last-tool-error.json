@@ -1,7 +1,7 @@
 {
-  "tool_name": "Bash",
-  "tool_input_preview": "{\"command\":\"git add supabase/schema.sql && git commit -m \\\"$(cat <<'EOF'\\nfix: supabase 클라이언트를 서버/클라이언트용으로 분리\\n\\n- supabase.ts: 공개 클라이언트 (NEXT_PUBLIC_ANON_KEY) - 클라이언트 컴포넌트용\\n- supabase-admin.ts: 서버 전...",
-  "error": "Exit code 1\nOn branch main\nYour branch is up to date with 'origin/main'.\n\nnothing to commit, working tree clean\n\nOn branch main\nYour branch is up to date with 'origin/main'.\n\nnothing to commit, working tree clean",
-  "timestamp": "2026-02-27T12:29:40.354Z",
+  "tool_name": "WebFetch",
+  "tool_input_preview": "{\"url\":\"https://developer.mozilla.org/en-US/docs/Web/Media/Guides/Autoplay_guide\",\"prompt\":\"Summarize the key technical points about:\\n1. Current browser autoplay restrictions\\n2. Techniques allowed t...",
+  "error": "Request failed with status code 404",
+  "timestamp": "2026-02-27T12:42:38.739Z",
   "retry_count": 1
 }

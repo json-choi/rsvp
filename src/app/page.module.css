@@ -64,6 +64,28 @@
   100% { background-position: -200% center; }
 }
 
+.landingInfo {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.landingInfoDate,
+.landingInfoVenue {
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  color: #a0855a;
+  font-weight: 400;
+}
+
+.landingInfoSep {
+  color: rgba(160, 133, 90, 0.4);
+  font-size: 0.7rem;
+}
+
 /* ── Invitation card ── */
 
 .invitation {

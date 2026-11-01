@@ -9,6 +9,8 @@
     "binding": "ASSETS"
   },
   "observability": { "enabled": true },
+  "workers_dev": false,
+  "routes": [{ "pattern": "invite.notish.cloud", "custom_domain": true }],
   "d1_databases": [
     {
       "binding": "DB",

@@ -1,6 +1,6 @@
 # RSVP 초대장
 
-모바일 초대장과 참석 응답(RSVP) 관리 페이지입니다.
+모바일 초대장과 참석 응답(RSVP) 관리 페이지입니다. 운영 주소: https://invite.notish.cloud
 Next.js 16 + [OpenNext](https://opennext.js.org/cloudflare)로 Cloudflare Workers에서 동작하며, 데이터는 D1, 이미지는 R2에 저장합니다.
 
 ## 구성

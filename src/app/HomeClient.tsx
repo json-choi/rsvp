@@ -84,48 +84,73 @@ export default function HomeClient({ texts, landingImage, rsvpOpen }: SiteSettin
     if (celebrate) fireFireworks();
   }, []);
 
+
   // 한동안 머물러 있으면 자동으로 초대장을 연다.
   useEffect(() => {
     const timer = window.setTimeout(() => open(false), AUTO_OPEN_MS);
     return () => window.clearTimeout(timer);
   }, [open]);
 
-  // 자동 재생이 막히면 첫 상호작용 때 BGM을 재생한다.
+  // 사용자가 직접 끈 경우에는 다시 틀지 않는다.
+  const userMutedRef = useRef(false);
+
+  const playBgm = useCallback(() => {
+    const audio = audioRef.current;
+    if (!audio || !audio.paused || userMutedRef.current) return;
+    audio.play().catch(() => {});
+  }, []);
+
+  // 아이콘 상태는 실제 재생 상태를 따른다.
   useEffect(() => {
     const audio = audioRef.current;
     if (!audio) return;
-    const events = ['pointerdown', 'keydown'] as const;
-    let started = false;
-
-    const tryPlay = () => {
-      if (started) return;
-      audio
-        .play()
-        .then(() => {
-          started = true;
-          setIsBgmPlaying(true);
-          events.forEach((e) => document.removeEventListener(e, tryPlay));
-        })
-        .catch(() => {});
-    };
-
-    tryPlay();
-    events.forEach((e) => document.addEventListener(e, tryPlay));
+    const sync = () => setIsBgmPlaying(!audio.paused);
+    audio.addEventListener('play', sync);
+    audio.addEventListener('pause', sync);
     return () => {
-      events.forEach((e) => document.removeEventListener(e, tryPlay));
+      audio.removeEventListener('play', sync);
+      audio.removeEventListener('pause', sync);
     };
   }, []);
 
+  // 브라우저는 소리 있는 자동 재생을 사용자 동작 전까지 막는다.
+  // 우선 바로 재생을 시도하고, 막히면 화면 어디든 처음 누르거나 키를 누를 때 재생한다.
+  // (iOS 사파리는 touchend·click에서만 재생을 허용하므로 여러 이벤트를 함께 듣는다.)
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+    const events = ['pointerdown', 'touchend', 'click', 'keydown'] as const;
+    const onInteract = (e: Event) => {
+      // 음악 버튼은 자체 토글로 처리한다 (여기서 틀면 같은 탭에 바로 꺼진다).
+      if (e.target instanceof Element && e.target.closest('[data-bgm-toggle]')) return;
+      playBgm();
+    };
+    const onPlay = () => events.forEach((e) => document.removeEventListener(e, onInteract, true));
+
+    audio.addEventListener('play', onPlay);
+    events.forEach((e) => document.addEventListener(e, onInteract, true));
+    playBgm();
+    return () => {
+      audio.removeEventListener('play', onPlay);
+      events.forEach((e) => document.removeEventListener(e, onInteract, true));
+    };
+  }, [playBgm]);
+
+  const openByUser = () => {
+    playBgm();
+    open(true);
+  };
+
   const toggleBgm = (e: React.MouseEvent) => {
-    // 문서 리스너가 같은 클릭으로 다시 재생하지 않도록 한다.
     e.stopPropagation();
     const audio = audioRef.current;
     if (!audio) return;
     if (audio.paused) {
-      audio.play().then(() => setIsBgmPlaying(true)).catch(() => setIsBgmPlaying(false));
+      userMutedRef.current = false;
+      audio.play().catch(() => {});
     } else {
+      userMutedRef.current = true;
       audio.pause();
-      setIsBgmPlaying(false);
     }
   };
 
@@ -163,6 +188,7 @@ export default function HomeClient({ texts, landingImage, rsvpOpen }: SiteSettin
 
         <motion.button
           type="button"
+          data-bgm-toggle
           className={styles.bgmControl}
           onClick={toggleBgm}
           whileHover={{ scale: 1.08 }}
@@ -178,7 +204,7 @@ export default function HomeClient({ texts, landingImage, rsvpOpen }: SiteSettin
               type="button"
               key="landing"
               className={styles.landing}
-              onClick={() => open(true)}
+              onClick={openByUser}
               aria-label="초대장 열기"
               initial={{ opacity: 0, scale: 0.96 }}
               animate={{ opacity: 1, scale: 1 }}

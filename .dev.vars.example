@@ -1,0 +1,4 @@
+# 로컬 개발용. `cp .dev.vars.example .dev.vars` 후 값을 바꾸세요.
+ADMIN_PASSWORD=change-me
+# 32자 이상 임의 문자열 (예: `openssl rand -base64 32`)
+SESSION_SECRET=replace-with-a-long-random-string

@@ -13,8 +13,7 @@
     {
       "binding": "DB",
       "database_name": "rsvp-db",
-      // `wrangler d1 create rsvp-db` 실행 후 출력된 ID로 교체하세요.
-      "database_id": "00000000-0000-0000-0000-000000000000",
+      "database_id": "f756d951-a573-452e-a3fa-247870ecf1b0",
       "migrations_dir": "migrations"
     }
   ],
